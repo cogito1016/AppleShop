@@ -11,10 +11,11 @@ public class Setting {
     @Column(name = "setting_id")
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "member_id")
     private Member member;
 
+    //값타입 컬렉션에 대한 고민필요. 엔티티로 승격? or OtherWay?
     @Embedded
     private Part processor;
     @Embedded
