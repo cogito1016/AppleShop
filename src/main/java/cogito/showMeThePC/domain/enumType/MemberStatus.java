@@ -1,4 +1,4 @@
-package cogito.shop.domain.enumType;
+package cogito.showMeThePC.domain.enumType;
 
 public enum MemberStatus {
     USER,ADMIN

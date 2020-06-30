@@ -1,5 +1,5 @@
-package cogito.shop.domain;
-import cogito.shop.domain.enumType.MemberStatus;
+package cogito.showMeThePC.domain;
+import cogito.showMeThePC.domain.enumType.MemberStatus;
 import lombok.Getter;
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -18,8 +18,12 @@ public class Member {
     private MemberStatus memberStatus;
 
     @OneToMany(mappedBy = "member")
-    private List<Order> orders = new ArrayList<>();
+    private List<Setting> settings = new ArrayList<>();
 
     @Embedded
     private Address address;
+
+    private String email;
+
+    private boolean quoteState;
 }

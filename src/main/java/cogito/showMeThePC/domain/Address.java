@@ -1,4 +1,4 @@
-package cogito.shop.domain;
+package cogito.showMeThePC.domain;
 import javax.persistence.Embeddable;
 
 @Embeddable

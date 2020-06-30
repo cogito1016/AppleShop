@@ -1,4 +1,4 @@
-package cogito.shop;
+package cogito.showMeThePC;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
