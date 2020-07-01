@@ -16,13 +16,13 @@ public class Setting {
     private Member member;
 
     //값타입 컬렉션에 대한 고민필요. 엔티티로 승격? or OtherWay?
-    @Embedded
-    private Part processor;
-    @Embedded
-    private Part graphicCard;
-    @Embedded
-    private Part ram;
-    @Embedded
-    private Part storage;
+//    @Embedded
+//    private Part processor;
+//    @Embedded
+//    private Part graphicCard;
+//    @Embedded
+//    private Part ram;
+//    @Embedded
+//    private Part storage;
 
 }
