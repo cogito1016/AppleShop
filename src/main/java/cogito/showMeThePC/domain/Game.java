@@ -7,7 +7,7 @@ import javax.persistence.*;
 @Entity
 @Getter
 @SequenceGenerator(name = "game_seq")
-public class Game {
+public class Game extends BaseEntity{
 
     @Id @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "game_seq")
     @Column(name="game_id")

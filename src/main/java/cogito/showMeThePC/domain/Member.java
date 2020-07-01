@@ -10,7 +10,7 @@ import java.util.List;
 @Entity
 @Getter @Setter
 @SequenceGenerator(name = "member_seq")
-public class Member {
+public class Member extends BaseEntity{
     @Id @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "member_seq")
     @Column(name = "member_id")
     private Long id;

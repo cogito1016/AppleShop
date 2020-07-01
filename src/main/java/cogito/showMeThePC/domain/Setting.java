@@ -10,7 +10,7 @@ import java.util.List;
 @Entity
 @Getter @Setter
 @SequenceGenerator(name = "setting_seq")
-public class Setting {
+public class Setting extends BaseEntity{
 
     @Id @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "setting_seq")
     @Column(name = "setting_id")

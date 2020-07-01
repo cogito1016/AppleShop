@@ -33,7 +33,6 @@ public class SettingServiceTest {
     @Test
     @Rollback(false)
     public void 세팅_디바이스_디바이스테이블_정상삽입확인(){
-
         Device device1 = new Device();
         device1.setSite("naver");
 

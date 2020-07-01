@@ -1,5 +1,6 @@
 package cogito.showMeThePC.domain.device;
 
+import cogito.showMeThePC.domain.BaseEntity;
 import cogito.showMeThePC.domain.Setting;
 import cogito.showMeThePC.domain.enumType.DeviceType;
 import lombok.Getter;
@@ -11,7 +12,7 @@ import javax.persistence.*;
 @Getter @Setter
 @SequenceGenerator(name = "device_seq")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-public class Device {
+public class Device extends BaseEntity {
 
     @Id @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "device_seq")
     @Column(name = "device_id")
