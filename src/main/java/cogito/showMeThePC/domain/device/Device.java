@@ -1,5 +1,7 @@
 package cogito.showMeThePC.domain.device;
 
+import cogito.showMeThePC.domain.Setting;
+import cogito.showMeThePC.domain.enumType.DeviceType;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -18,5 +20,12 @@ public class Device {
     private String name;
     private int price;
     private String site;
+
+    @Enumerated(EnumType.STRING)
+    private DeviceType deviceType;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "setting_id")
+    private Setting setting;
 
 }

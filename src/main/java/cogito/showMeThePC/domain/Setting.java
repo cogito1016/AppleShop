@@ -1,9 +1,14 @@
 package cogito.showMeThePC.domain;
+import cogito.showMeThePC.domain.device.*;
 import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
-@Getter
+@Getter @Setter
 @SequenceGenerator(name = "setting_seq")
 public class Setting {
 
@@ -15,14 +20,12 @@ public class Setting {
     @JoinColumn(name = "member_id")
     private Member member;
 
-    //값타입 컬렉션에 대한 고민필요. 엔티티로 승격? or OtherWay?
-//    @Embedded
-//    private Part processor;
-//    @Embedded
-//    private Part graphicCard;
-//    @Embedded
-//    private Part ram;
-//    @Embedded
-//    private Part storage;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "game_id")
+    private Game game;
+
+    @OneToMany(mappedBy = "setting",cascade = CascadeType.ALL)
+    private List<Device> devices = new ArrayList<>();
+
 
 }

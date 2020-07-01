@@ -1,7 +1,7 @@
 package cogito.showMeThePC.service;
 
 import cogito.showMeThePC.domain.device.Device;
-import cogito.showMeThePC.domain.device.Processor;
+import cogito.showMeThePC.domain.enumType.DeviceType;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,10 +24,11 @@ public class DeviceServiceTest {
     @Rollback(false)
     public void 디바이스저장테스트(){
 
-        Device processor = new Processor();
+        Device processor = new Device();
         processor.setName("i5");
         processor.setPrice(50000);
         processor.setSite("www.naver.com");
+        processor.setDeviceType(DeviceType.PROCESSOR);
 
         Long findId = deviceService.saveDevice(processor);
 
