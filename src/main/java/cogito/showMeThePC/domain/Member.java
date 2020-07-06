@@ -4,11 +4,12 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Getter @Setter
+@Getter
 @SequenceGenerator(name = "member_seq")
 public class Member extends BaseEntity{
     @Id @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "member_seq")
@@ -28,4 +29,18 @@ public class Member extends BaseEntity{
     private String email;
 
     private boolean quoteState;
+
+    public Member(){}
+    public Member(String name, MemberStatus memberStatus, Address address, String email){
+        this.name=name;
+        this.memberStatus=memberStatus;
+        this.address=address;
+        this.email=email;
+        this.quoteState=false;
+        super.setCreatedTime(LocalDateTime.now());
+    }
+    public static Member createMember(String name, MemberStatus memberStatus, Address address, String email){
+        Member member = new Member(name, memberStatus, address,  email);
+        return member;
+    }//createMember() end
 }

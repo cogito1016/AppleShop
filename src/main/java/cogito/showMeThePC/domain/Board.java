@@ -3,6 +3,7 @@ package cogito.showMeThePC.domain;
 import lombok.Getter;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
 @Getter
@@ -22,4 +23,16 @@ public class Board extends BaseEntity{
 
     @Lob
     private String content;
+
+    public Board(){}
+    public Board(Member member, Setting setting, String content){
+        this.member=member;
+        this.setting=setting;
+        this.content=content;
+        super.setCreatedTime(LocalDateTime.now());
+    }
+    public static Board createBoard(Member member, Setting setting, String content){
+        Board board = new Board(member,setting,content);
+        return board;
+    }//createBoard() end
 }
