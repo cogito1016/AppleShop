@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
 @Getter @Setter
@@ -20,6 +21,7 @@ public class Device extends BaseEntity {
 
     private String name;
     private int price;
+    @Column(length = 1000)
     private String site;
 
     @Enumerated(EnumType.STRING)
@@ -35,6 +37,7 @@ public class Device extends BaseEntity {
         this.price=price;
         this.site=site;
         this.deviceType=deviceType;
+        super.setCreatedTime(LocalDateTime.now());
     }
     public static Device createDevice(String name, int price, String site,DeviceType deviceType){
         Device device = new Device(name,price,site,deviceType);

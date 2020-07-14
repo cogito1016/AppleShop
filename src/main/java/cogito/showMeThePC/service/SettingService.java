@@ -59,10 +59,6 @@ public class SettingService {
         int price = Integer.parseInt(priceEle.get(0).text().replace("원","").replace(",",""));
         String site = siteEle.get(0).attr("href");
 
-        System.out.println(name);
-        System.out.println(price);
-        System.out.println(site);
-
         return Device.createDevice(name,price,site,deviceType);
     }
 
