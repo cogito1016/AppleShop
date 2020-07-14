@@ -29,4 +29,16 @@ public class Device extends BaseEntity {
     @JoinColumn(name = "setting_id")
     private Setting setting;
 
+    public Device(){}
+    public Device(String name, int price, String site,DeviceType deviceType){
+        this.name=name;
+        this.price=price;
+        this.site=site;
+        this.deviceType=deviceType;
+    }
+    public static Device createDevice(String name, int price, String site,DeviceType deviceType){
+        Device device = new Device(name,price,site,deviceType);
+        return device;
+    }//createDevic() end
+
 }
