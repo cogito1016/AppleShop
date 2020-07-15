@@ -20,7 +20,7 @@ public class BoardService {
     private final SettingRepository settingRepository;
 
     @Transactional
-    public Long save(Long memberId, Long settingId,String content){
+    public Long save(Long memberId, Long settingId,String content,String title){
 
         Member member = memberRepository.findOne(memberId);
         Setting setting;
@@ -28,7 +28,7 @@ public class BoardService {
             setting=null;
         else
             setting=settingRepository.findOne(settingId);
-        Board board = Board.createBoard(member,setting,content);
+        Board board = Board.createBoard(member,setting,content,title);
         boardRepository.save(board);
         return board.getId();
     }//save() end

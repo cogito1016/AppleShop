@@ -29,7 +29,8 @@ public class BoardServiceTest {
         Long settingId = null;
 
         String content = "반갑다~";
-        Long findId = boardService.save(member.getId(),settingId,content);
+        String title = "여보세요";
+        Long findId = boardService.save(member.getId(),settingId,content,title);
 
         assertEquals("커뮤니티글 작성자가 정상적으로 들어가있는지 확인합니다",boardService.findOne(findId).getMember(),member);
         assertEquals("글 내용이 정확한지 확인합니다",boardService.findOne(findId).getContent(),content);

@@ -24,15 +24,18 @@ public class Board extends BaseEntity{
     @Lob
     private String content;
 
+    private String title;
+
     public Board(){}
-    public Board(Member member, Setting setting, String content){
+    public Board(Member member, Setting setting, String content,String title){
         this.member=member;
         this.setting=setting;
         this.content=content;
+        this.title=title;
         super.setCreatedTime(LocalDateTime.now());
     }
-    public static Board createBoard(Member member, Setting setting, String content){
-        Board board = new Board(member,setting,content);
+    public static Board createBoard(Member member, Setting setting, String content,String title){
+        Board board = new Board(member,setting,content,title);
         return board;
     }//createBoard() end
 }
