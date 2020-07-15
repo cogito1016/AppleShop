@@ -34,7 +34,7 @@ public class SettingServiceTest {
         memberService.save(member);
         Game game = Game.createGame("디아블로3","Intel i5","8GB","IrisPlus650","50GB");
         gameService.save(game);
-        Long findId = settingService.saveSetting(game,member);
+        Long findId = settingService.saveSetting(game.getId(),member.getId());
 
         Setting findSetting = settingService.findOne(findId);
 

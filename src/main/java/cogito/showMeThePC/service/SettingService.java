@@ -5,6 +5,8 @@ import cogito.showMeThePC.domain.Member;
 import cogito.showMeThePC.domain.Setting;
 import cogito.showMeThePC.domain.device.Device;
 import cogito.showMeThePC.domain.enumType.DeviceType;
+import cogito.showMeThePC.repository.GameRepository;
+import cogito.showMeThePC.repository.MemberRepository;
 import cogito.showMeThePC.repository.SettingRepository;
 import lombok.RequiredArgsConstructor;
 import org.jsoup.Jsoup;
@@ -23,9 +25,14 @@ import java.util.Iterator;
 public class SettingService {
 
     private final SettingRepository settingRepository;
+    private final GameRepository gameRepository;
+    private final MemberRepository memberRepository;
 
     @Transactional
-    public Long saveSetting(Game game, Member member) throws IOException {
+    public Long saveSetting(Long gameId, Long memberId) throws IOException {
+
+        Game game = gameRepository.findOne(gameId);
+        Member member = memberRepository.findOne(memberId);
 
         //대상 Game의 하드웨어 정보 추출
         String graphic = game.getMinGraphicName();
