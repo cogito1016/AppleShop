@@ -10,6 +10,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
@@ -37,4 +39,5 @@ public class BoardService {
         return boardRepository.findOne(boardId);
     }//findOne() end
 
+    public List<Board> findAll() { return boardRepository.findAll();}//findAll() end
 }
