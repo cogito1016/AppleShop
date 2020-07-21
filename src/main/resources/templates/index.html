@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>ShowMeThePC</title>
+    <style>
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+
+        a:active {
+            color: black;
+        }
+
+        #header {
+            position: relative;
+            display: flex; 
+            justify-content: space-between;
+            background-color: blue;
+        }
+
+        #header #logo {
+            position: relative;
+            background-color: purple;
+        }
+
+        #header #logo>h1 {
+
+        }
+
+        #header #userInfo {
+            position: relative;
+            background-color: gray;
+        }
+
+        #header #userInfo a{
+            position: relative;
+            top:30px;
+        }
+
+        #settingNavigation {
+            position: relative;
+            background-color: red;
+            cursor: pointer;
+            text-align: center;
+            transition: .2s ease;
+        }
+
+        #settingNavigation:hover {
+            background-color: lightcoral;
+        }
+
+        #content {
+            position: relative;
+            background-color: hotpink;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <div id="header">
+        <span id="logo"><h1>ShowMeThePC</h1></span> <!--logo end-->
+        <span id="userInfo">
+            <a href="#" class="log_in_btn">로그인</a>
+            <a href="#" class="register_btn">회원가입</a>
+        </span><!--userInfo End-->
+    </div><!--header end-->
+    
+    <div id="settingNavigation"><h2>Click To Set!</h2></div><!--settingNavigation end-->
+
+    <div id="content">
+        <ul class="board_list">
+            <li class="board_item">
+                <h5 class="board_title">안녕</h5>
+                <span class="board_content">내가이번에 컴퓨터를 맞췄단말이야</span>
+                <div class="board_setting_info">
+                    <span class="board_setting_info_price">120,000원</span>
+                </div>
+            </li>
+        </ul>
+    </div><!--content end-->
+
+
+
+</body>
+</html>
