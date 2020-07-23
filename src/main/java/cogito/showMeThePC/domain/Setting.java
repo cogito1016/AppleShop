@@ -34,6 +34,7 @@ public class Setting extends BaseEntity{
         this.game=game;
         for(Device device:devices){
             this.devices.add(device);
+            device.setSetting(this);
         }//for end
         super.setCreatedTime(LocalDateTime.now());
     }
@@ -44,8 +45,6 @@ public class Setting extends BaseEntity{
 
     //비지니스 로직
     public int getTotalPrice() {
-        if(this.devices.isEmpty())
-            return 0;
         int result = 0;
         for(Device device : this.devices){
             result += device.getPrice();

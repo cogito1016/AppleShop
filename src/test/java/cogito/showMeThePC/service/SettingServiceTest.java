@@ -29,6 +29,7 @@ public class SettingServiceTest {
     @Autowired private  MemberService memberService;
 
     @Test
+    @Rollback(false)
     public void 세팅정보_정상삽입확인() throws IOException {
         Member member = Member.createMember("Kim", MemberStatus.USER, new Address("수원","효행로","101"),"gladiate116@naver.com");
         memberService.save(member);

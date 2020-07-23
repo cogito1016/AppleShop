@@ -50,6 +50,7 @@ public class SettingService {
         //해당 Game과 Device들을 이용해서 Setting객체를 만든다.
         Setting setting = Setting.createSetting(member,game,devices);
 
+
         //그리고 Repository를 호출하여 저장한다.
         return settingRepository.saveSetting(setting);
     }//saveSetting() end

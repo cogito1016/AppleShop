@@ -38,4 +38,16 @@ public class Board extends BaseEntity{
         Board board = new Board(member,setting,content,title);
         return board;
     }//createBoard() end
+
+    //비지니스로직
+    public boolean isSettingExist() {
+        return setting!=null;
+    }//isSettingExist9) end
+
+    public int getTotalPrice() {
+        if(!isSettingExist())
+            return 0;
+        return this.setting.getTotalPrice();
+    }//getTotalPrice() end
+
 }

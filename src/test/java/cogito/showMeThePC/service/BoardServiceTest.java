@@ -35,4 +35,12 @@ public class BoardServiceTest {
         assertEquals("커뮤니티글 작성자가 정상적으로 들어가있는지 확인합니다",boardService.findOne(findId).getMember(),member);
         assertEquals("글 내용이 정확한지 확인합니다",boardService.findOne(findId).getContent(),content);
     }
+
+    @Test
+    public void 커뮤니티글_세팅존재_총가격() {
+        Board board = boardService.findOne(52L);  //ID는 계속변경되어야함
+        int price = board.getTotalPrice();
+        System.out.println(price);
+        assertEquals(777041, price);
+    }
 }

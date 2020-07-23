@@ -149,7 +149,7 @@
                 <h5 class="board_title" th:text="${board.title}">제목</h5>
                 <span class="board_content" th:text="${board.content}">컨텐츠</span>
                 <div class="board_setting_info">
-                    <span class="board_setting_info_price" th:if="${board.setting!=null}" th:text="${board.setting.getTotalPrice()}">가격</span>
+                    <span class="board_setting_info_price" th:if="${board.isSettingExist()}" th:text="${board.getTotalPrice()}">가격</span>
                 </div>
             </li></a>
 
