@@ -42,4 +42,15 @@ public class Setting extends BaseEntity{
         return setting;
     }//createSeeting() end
 
+    //비지니스 로직
+    public int getTotalPrice() {
+        if(this.devices.isEmpty())
+            return 0;
+        int result = 0;
+        for(Device device : this.devices){
+            result += device.getPrice();
+        }//for end
+        return result;
+    }//totalPrice() end
+
 }

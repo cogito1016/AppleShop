@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>ShowMeThePC</title>
-    <link rel="stylesheet" type="text/css" href="./reset.css">
+    <link rel="stylesheet" type="text/css" href="/reset.css">
     <style>
 
         a {
@@ -145,42 +145,11 @@
 
     <div id="content">
         <ul class="board_list">
-            <a href="#"><li class="board_item">
-                <h5 class="board_title">안녕안녕안녕안녕안녕</h5>
-                <span class="board_content">내가이번에 컴퓨터를 맞췄단말이야</span>
+            <a th:each="board : ${boards}" href="#"><li class="board_item">
+                <h5 class="board_title" th:text="${board.title}">제목</h5>
+                <span class="board_content" th:text="${board.content}">컨텐츠</span>
                 <div class="board_setting_info">
-                    <span class="board_setting_info_price">120,000원</span>
-                </div>
-            </li></a>
-
-            <a href="#"><li class="board_item">
-                <h5 class="board_title">안녕안녕안녕안녕안녕</h5>
-                <span class="board_content">내가이번에 컴퓨터를 맞췄단말이야</span>
-                <div class="board_setting_info">
-                    <span class="board_setting_info_price">120,000원</span>
-                </div>
-            </li></a>
-
-            <a href="#"><li class="board_item">
-                <h5 class="board_title">안녕안녕안녕안녕안녕</h5>
-                <span class="board_content">내가이번에 컴퓨터를 맞췄단말이야</span>
-                <div class="board_setting_info">
-                    <span class="board_setting_info_price">120,000원</span>
-                </div>
-            </li></a>
-
-            <a href="#"><li class="board_item">
-                <h5 class="board_title">안녕안녕안녕안녕안녕</h5>
-                <span class="board_content">내가이번에 컴퓨터를 맞췄단말이야</span>
-                <div class="board_setting_info">
-                    <span class="board_setting_info_price">120,000원</span>
-                </div>
-            </li></a>
-            <a href="#"><li class="board_item">
-                <h5 class="board_title">안녕안녕안녕안녕안녕</h5>
-                <span class="board_content">내가이번에 컴퓨터를 맞췄단말이야</span>
-                <div class="board_setting_info">
-                    <span class="board_setting_info_price">120,000원</span>
+                    <span class="board_setting_info_price" th:if="${board.setting!=null}" th:text="${board.setting.getTotalPrice()}">가격</span>
                 </div>
             </li></a>
 
