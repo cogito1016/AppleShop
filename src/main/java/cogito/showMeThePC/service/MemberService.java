@@ -6,6 +6,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
@@ -29,4 +31,12 @@ public class MemberService {
     public Member findOne(Long id){
         return memberRepository.findOne(id);
     }//findOne() end
+
+    public Member findOneByEmail(String email) {
+        List<Member> list =  memberRepository.findOneByEmail(email);
+        if(list.isEmpty()){
+           throw new IllegalStateException("해당 이메일을 가진 회원이 존재하지 않습니다");
+        }
+        return list.get(0);
+    }//findByEmail() end
 }
