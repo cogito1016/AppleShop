@@ -1,0 +1,50 @@
+#header {
+    position: relative;
+    display: flex;
+    height: 100px;
+    justify-content: space-between;
+    background-color: blue;
+
+}
+
+#header #logo {
+    position: relative;
+    background-color: purple;
+}
+
+#header #logo>h1 {
+    font-size: 40pt;
+    line-height: 100px;
+}
+
+#header #userInfo {
+    position: relative;
+    width:200px;
+    background-color: lightblue;
+}
+
+#header #userInfo a {
+    position: relative;
+    top:40px;
+    left:40px;
+    font-size: 15pt;
+    background-color: gray;
+}
+
+#settingNavigation {
+    position: relative;
+    height:100px;
+    background-color: red;
+    cursor: pointer;
+    text-align: center;
+    transition: .2s ease;
+}
+
+#settingNavigation h2 {
+    font-size: 30pt;
+    line-height: 100px;
+}
+
+#settingNavigation:hover {
+    background-color: lightcoral;
+}

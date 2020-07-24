@@ -22,7 +22,6 @@ public class BoardServiceTest {
     @Autowired private MemberService memberService;
 
     @Test
-    @Rollback(false)
     public void 커뮤니티글_작성(){
         Member member = Member.createMember("Kim", MemberStatus.USER, new Address("수원","효행로","101"),"gladiate116@naver.com");
         memberService.save(member);

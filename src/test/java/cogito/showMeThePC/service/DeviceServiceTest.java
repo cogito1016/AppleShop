@@ -21,7 +21,6 @@ public class DeviceServiceTest {
     private DeviceService deviceService;
 
     @Test
-    @Rollback(false)
     public void 디바이스저장테스트(){
 
         Device processor = new Device();
