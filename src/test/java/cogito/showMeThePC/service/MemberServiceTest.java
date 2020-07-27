@@ -51,8 +51,9 @@ public class MemberServiceTest {
 
         //then
         assertEquals("정확한 이메일과 정확한 비밀번호의 경우",true,trueCase);
-        assertEquals("틀린 이메일과 정확한 비밀번호의 경우",false,trueCase);
-        assertEquals("정확한 이메일과 틀린 비밀번호의 경우",false,trueCase);
+        assertEquals("틀린 이메일과 정확한 비밀번호의 경우",false,falseCase);
+        assertEquals("정확한 이메일과 틀린 비밀번호의 경우",false,falseCase2);
+        assertEquals("틀린 이메일과 틀린 비밀번호의 경우",false,falseCase3);
 
     }
 
