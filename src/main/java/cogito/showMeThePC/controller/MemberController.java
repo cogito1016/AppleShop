@@ -40,7 +40,9 @@ public class MemberController {
 
     @PostMapping("/logIn")
     public String logIn(String email, String password){
-        
+        //로그인가능여부 판단
+
+        //수행
         return "index";
     }//logIn() end
 

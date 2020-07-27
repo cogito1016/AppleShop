@@ -39,4 +39,12 @@ public class MemberService {
         }
         return list.get(0);
     }//findByEmail() end
+
+    public boolean isMemberExist(String email, String password){
+        if(!memberRepository.findOneByEmailAndPassword(email, password).isEmpty()){
+            return true;
+        }else{
+            return false;
+        }
+    }//isMemberExist() end
 }

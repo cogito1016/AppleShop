@@ -28,4 +28,11 @@ public class MemberRepository {
                 .getResultList();
     }//findOneById() end
 
+    public List<Member> findOneByEmailAndPassword(String email,String password){
+        return em.createQuery("select m from Member m where m.email = :email and m.password = :password")
+                .setParameter("email",email)
+                .setParameter("password",password)
+                .getResultList();
+    }//findOneByEmailAndPassword() end
+
 }
