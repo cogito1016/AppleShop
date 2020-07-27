@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>회원가입</title>
@@ -56,12 +56,12 @@
 
 
 <div id="content">
-    <form action="/member" method="post">
-        <label>이름<input id="name" name="name"></label>
-        <label>이메일<input id="email" name="email"></label>
-        <label>도시<input id="city" name="city"></label>
-        <label>도로명주소<input id="street" name="street"></label>
-        <label>우편번호<input id="zipcode" name="zipcode"></label>
+    <form action="/member" method="post" th:object="${form}">
+        <label>이름<input id="name" th:field="*{name}" name="name"></label>
+        <label>이메일<input id="email" th:field="*{email}" name="email"></label>
+        <label>도시<input id="city" th:field="*{city}" name="city"></label>
+        <label>도로명주소<input id="street" th:field="*{street}" name="street"></label>
+        <label>우편번호<input id="zipcode" th:field="*{zipcode}" name="zipcode"></label>
         <button id="registerBtn" type="submit">가입</button>
     </form>
 </div>

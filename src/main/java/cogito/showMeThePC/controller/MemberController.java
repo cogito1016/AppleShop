@@ -21,7 +21,7 @@ public class MemberController {
 
     @PostMapping("/member")
     public String register(MemberDTO memberDTO){//1.채워진 폼이 넘겨올테니
-
+        System.out.println(memberDTO.getCity()+" "+memberDTO.getName()+" "+memberDTO.getEmail()+" "+memberDTO.getStreet()+" "+memberDTO.getZipcode());
         //2.실제 Member엔티티의 객체를 새성해서 폼의 내용을 채워넣고
         //3.MemberService의 save동작을 수행해야한다.
         return "index";
