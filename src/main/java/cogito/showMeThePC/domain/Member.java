@@ -16,7 +16,7 @@ public class Member extends BaseEntity{
     @Column(name = "member_id")
     private Long id;
     private String name;
-
+    private String password;
     @Enumerated(EnumType.STRING)
     private MemberStatus memberStatus;
 
@@ -31,16 +31,17 @@ public class Member extends BaseEntity{
     private boolean quoteState;
 
     public Member(){}
-    public Member(String name, MemberStatus memberStatus, Address address, String email){
+    public Member(String name, MemberStatus memberStatus, Address address, String email,String password){
         this.name=name;
         this.memberStatus=memberStatus;
         this.address=address;
         this.email=email;
         this.quoteState=false;
+        this.password=password;
         super.setCreatedTime(LocalDateTime.now());
     }
-    public static Member createMember(String name, MemberStatus memberStatus, Address address, String email){
-        Member member = new Member(name, memberStatus, address,  email);
+    public static Member createMember(String name, MemberStatus memberStatus, Address address, String email,String password){
+        Member member = new Member(name, memberStatus, address,  email, password);
         return member;
     }//createMember() end
 }

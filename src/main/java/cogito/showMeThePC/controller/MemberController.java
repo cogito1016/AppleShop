@@ -18,7 +18,7 @@ public class MemberController {
 
     @GetMapping("/member")
     public String registerForm(Model model){
-        model.addAttribute("form",new MemberDTO()); //폼을 붙여 넘겼으니 뷰에선 그 폼을 채워야함
+        model.addAttribute("form",new MemberDTO());
         return "registerForm";
     }//registerForm() end
 
@@ -27,9 +27,21 @@ public class MemberController {
         //2.실제 Member엔티티의 객체를 새성해서 폼의 내용을 채워넣고
         Member member = Member.createMember(memberDTO.getName(),
                 MemberStatus.USER, new Address(memberDTO.getCity(),memberDTO.getStreet(),memberDTO.getZipcode()),
-                memberDTO.getEmail());
+                memberDTO.getEmail(),memberDTO.getPassword());
         //3.MemberService의 save동작을 수행해야한다.
         memberService.save(member);
         return "index";
-    }
+    }//register() end
+
+    @GetMapping("/logIn")
+    public String logInForm(){
+        return "login"; //login 뷰 생성필요
+    }//logInForm() end
+
+    @PostMapping("/logIn")
+    public String logIn(String email, String password){
+        
+        return "index";
+    }//logIn() end
+
 }

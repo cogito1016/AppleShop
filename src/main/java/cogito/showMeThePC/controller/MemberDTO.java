@@ -21,4 +21,5 @@ public class MemberDTO {
     private String street;
     private String zipcode;
     private String email;
+    private String password;
 }

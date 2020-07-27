@@ -59,6 +59,7 @@
     <form action="/member" method="post" th:object="${form}">
         <label>이름<input id="name" th:field="*{name}" name="name"></label>
         <label>이메일<input id="email" th:field="*{email}" name="email"></label>
+        <label>비밀번호<input id="password" th:field="*{password}" name="password"></label>
         <label>도시<input id="city" th:field="*{city}" name="city"></label>
         <label>도로명주소<input id="street" th:field="*{street}" name="street"></label>
         <label>우편번호<input id="zipcode" th:field="*{zipcode}" name="zipcode"></label>
