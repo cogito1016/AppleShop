@@ -1,5 +1,8 @@
 package cogito.showMeThePC.controller;
 
+import cogito.showMeThePC.domain.Address;
+import cogito.showMeThePC.domain.Member;
+import cogito.showMeThePC.domain.enumType.MemberStatus;
 import cogito.showMeThePC.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -21,9 +24,12 @@ public class MemberController {
 
     @PostMapping("/member")
     public String register(MemberDTO memberDTO){//1.채워진 폼이 넘겨올테니
-        System.out.println(memberDTO.getCity()+" "+memberDTO.getName()+" "+memberDTO.getEmail()+" "+memberDTO.getStreet()+" "+memberDTO.getZipcode());
         //2.실제 Member엔티티의 객체를 새성해서 폼의 내용을 채워넣고
+        Member member = Member.createMember(memberDTO.getName(),
+                MemberStatus.USER, new Address(memberDTO.getCity(),memberDTO.getStreet(),memberDTO.getZipcode()),
+                memberDTO.getEmail());
         //3.MemberService의 save동작을 수행해야한다.
+        memberService.save(member);
         return "index";
     }
 }
