@@ -23,7 +23,7 @@ public class BoardServiceTest {
 
     @Test
     public void 커뮤니티글_작성(){
-        Member member = Member.createMember("Kim", MemberStatus.USER, new Address("수원","효행로","101"),"gladiate116@naver.com");
+        Member member = Member.createMember("Kim", MemberStatus.USER, new Address("수원","효행로","101"),"gladiate116@naver.com","123");
         memberService.save(member);
         Long settingId = null;
 
