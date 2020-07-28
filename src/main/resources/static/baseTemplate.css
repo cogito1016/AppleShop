@@ -1,3 +1,6 @@
-@import url("/static/reset.css");
-@import url("/static/header.css");
-@import url("/static/footer.css");
+/*@import url("reset.css");*/
+/*@import url("header.css");*/
+/*@import url("footer.css");*/
+@import "reset.css";
+@import "header.css";
+@import "footer.css";

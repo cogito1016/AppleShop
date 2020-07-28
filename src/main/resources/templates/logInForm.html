@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>로그인</title>
+    <link rel="stylesheet" type="text/css" href="/static/baseTemplate.css">
+    <style>
+
+        #content {
+            margin:0 auto;
+            width:500px;
+            background-color: red;
+        }
+
+        #content form label{
+            margin-top: 50px;
+            display: block;
+            font-size: 20pt;
+        }
+
+        #content form #submit_btn {
+            margin-top: 50px;
+            height:50px;
+            width:100%;
+            background-color: white;
+        }
+
+        #content form label input {
+            width: 200px;
+            height: 25px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="header">
+    <span id="logo"><h1>ShowMeThePC</h1></span> <!--logo end-->
+    <span id="userInfo">
+            <a href="#" class="log_in_btn">로그인</a>
+            <a href="#" class="register_btn">회원가입</a>
+        </span><!--userInfo End-->
+</div><!--header end-->
+
+<div id="settingNavigation">
+    <h2>Click To Set!</h2>
+</div><!--settingNavigation end-->
+
+
+<div id="content">
+    <form action="/login" method="post">
+        <label>이메일<input id="email" name="email"></label>
+        <label>비밀번호<input type="password" id="password" name="password"></label>
+        <button id="submit_btn">로그인</button>
+    </form>
+</div>
+
+<div id="footer">
+
+</div>
+
+
+</body>
+</html>
