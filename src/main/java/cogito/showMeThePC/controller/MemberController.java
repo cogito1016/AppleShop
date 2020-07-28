@@ -5,10 +5,13 @@ import cogito.showMeThePC.domain.Member;
 import cogito.showMeThePC.domain.enumType.MemberStatus;
 import cogito.showMeThePC.service.MemberService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import javax.servlet.http.HttpSession;
 
 @Controller
 @RequiredArgsConstructor
@@ -35,14 +38,17 @@ public class MemberController {
 
     @GetMapping("/logIn")
     public String logInForm(){
-        return "login"; //login 뷰 생성필요
+        return "logInForm"; //login 뷰 생성필요
     }//logInForm() end
 
     @PostMapping("/logIn")
-    public String logIn(String email, String password){
+    public String logIn(String email, String password, HttpSession session){
         //로그인가능여부 판단
-
-        //수행
+        if(memberService.isMemberExist(email, password)){
+            session.setAttribute("logInMember",memberService.findOneByEmail(email));
+        }else{
+            return "logInForm";
+        }
         return "index";
     }//logIn() end
 

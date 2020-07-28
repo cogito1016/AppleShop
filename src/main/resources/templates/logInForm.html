@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>로그인</title>
-    <link rel="stylesheet" type="text/css" href="/static/baseTemplate.css">
+    <link rel="stylesheet" type="text/css" href="/baseTemplate.css">
     <style>
 
         #content {
@@ -36,8 +36,8 @@
 <div id="header">
     <span id="logo"><h1>ShowMeThePC</h1></span> <!--logo end-->
     <span id="userInfo">
-            <a href="#" class="log_in_btn">로그인</a>
-            <a href="#" class="register_btn">회원가입</a>
+            <a href="/logIn" class="log_in_btn">로그인</a>
+            <a href="/member" class="register_btn">회원가입</a>
         </span><!--userInfo End-->
 </div><!--header end-->
 
@@ -47,7 +47,7 @@
 
 
 <div id="content">
-    <form action="/login" method="post">
+    <form action="/logIn" method="post">
         <label>이메일<input id="email" name="email"></label>
         <label>비밀번호<input type="password" id="password" name="password"></label>
         <button id="submit_btn">로그인</button>
