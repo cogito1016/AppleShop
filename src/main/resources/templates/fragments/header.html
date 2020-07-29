@@ -3,10 +3,12 @@
 
 
 <div id="header" th:fragment="header">
-    <span id="logo"><h1>ShowMeThePC</h1></span> <!--logo end-->
+    <span id="logo">
+        <a href="/index"><h1>ShowMeThePC</h1></a>
+    </span> <!--logo end-->
     <span id="userInfo" >
-            <a href="/logIn" class="log_in_btn" th:if="${logInMember==null}">로그인</a>
-            <a href="/member" class="register_btn" th:if="${logInMember==null}">회원가입</a>
-            <a href="/myPage" class="my_page_btn" th:if="${logInMember!=null}">마이페이지</a>
+            <a href="/logIn" class="log_in_btn" th:if="${session.logInMember==null}">로그인</a>
+            <a href="/member" class="register_btn" th:if="${session.logInMember==null}">회원가입</a>
+            <a href="/myPage" class="my_page_btn" th:if="${session.logInMember!=null}">마이페이지</a>
         </span><!--userInfo End-->
 </div><!--header end-->
