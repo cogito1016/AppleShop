@@ -42,13 +42,18 @@ public class MemberController {
     }//logInForm() end
 
     @PostMapping("/logIn")
-    public String logIn(String email, String password, HttpSession session){
+    public String logIn(String email, String password, HttpSession session,Model model){
+
+        Member member=null;
         //로그인가능여부 판단
         if(memberService.isMemberExist(email, password)){
-            session.setAttribute("logInMember",memberService.findOneByEmail(email));
+            member = memberService.findOneByEmail(email);
+            session.setAttribute("logInMember",member);
         }else{
             return "logInForm";
-        }
+        }//if~else end
+
+        model.addAttribute("logInMember",member);
         return "index";
     }//logIn() end
 

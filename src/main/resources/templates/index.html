@@ -5,9 +5,6 @@
     <title>ShowMeThePC</title>
     <link rel="stylesheet" type="text/css" href="/baseTemplate.css">
     <style>
-
-
-
         #content {
             position: relative;
             background-color: hotpink;
@@ -70,9 +67,10 @@
     
     <div id="header">
         <span id="logo"><h1>ShowMeThePC</h1></span> <!--logo end-->
-        <span id="userInfo">
-            <a href="/logIn" class="log_in_btn">로그인</a>
-            <a href="/member" class="register_btn">회원가입</a>
+        <span id="userInfo" >
+            <a href="/logIn" class="log_in_btn" th:if="${logInMember==null}">로그인</a>
+            <a href="/member" class="register_btn" th:if="${logInMember==null}">회원가입</a>
+            <a href="/myPage" class="my_page_btn" th:if="${logInMember!=null}">마이페이지</a>
         </span><!--userInfo End-->
     </div><!--header end-->
     
