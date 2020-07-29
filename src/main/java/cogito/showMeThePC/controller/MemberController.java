@@ -6,11 +6,13 @@ import cogito.showMeThePC.domain.enumType.MemberStatus;
 import cogito.showMeThePC.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 @Controller
@@ -18,6 +20,11 @@ import javax.servlet.http.HttpSession;
 public class MemberController {
 
     private final MemberService memberService;
+
+    @GetMapping({"/","/index"})
+    public String home(){
+        return "index";
+    }//home() end
 
     @GetMapping("/member")
     public String registerForm(Model model){
@@ -52,5 +59,11 @@ public class MemberController {
         }//if~else end
         return "index";
     }//logIn() end
+
+    @GetMapping("/logOut")
+    public String logOut(HttpSession session, HttpServletRequest request){
+        session.invalidate();
+        return "redirect:"+request.getHeader("referer");
+    }//logOut() end
 
 }
