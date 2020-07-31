@@ -80,7 +80,7 @@
         <select class="game_select_list" th:object="${games}">
             <!-- 페이지 도착 시 게임의 종류를 받아 표시 -->
             <option aria-checked="true">게임 선택</option>
-            <option th:each="game : ${games}">${games.name}</option>
+            <option th:each="game : ${games}" th:text="${game.name}" th:value="${game.id}">게임 이름</option>
         </select>
         <button type="button" class="game_select_btn">찾기</button>
     </div>

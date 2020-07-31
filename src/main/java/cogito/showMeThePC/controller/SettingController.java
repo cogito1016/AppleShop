@@ -1,6 +1,7 @@
 package cogito.showMeThePC.controller;
 
 import cogito.showMeThePC.domain.device.Device;
+import cogito.showMeThePC.service.GameService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,9 +15,11 @@ import java.util.List;
 @RequiredArgsConstructor
 public class SettingController {
 
+    private final GameService gameService;
+
     @GetMapping("/setting")
     public String settingForm(Model model){
-//        model.addAttribute("games",) //게임 리스트를 넘겨줘야 함
+        model.addAttribute("games",gameService.findAll()); //게임 리스트를 넘겨줘야 함
         return "settingForm";
     }//settingForm() end
 
