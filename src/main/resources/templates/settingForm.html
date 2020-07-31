@@ -1,34 +1,88 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>세팅</title>
+    <link rel="stylesheet" type="text/css" href="/baseTemplate.css">
     <style>
 
         #content {
+            position: relative;
             margin:0 auto;
             width:500px;
             background-color: red;
         }
 
+        #content .game_select_form {
+            position: relative;
+            width:350px;
+            margin:0 auto;
+        }
 
-        #content #setting_form button{
-            width:50%;
+        #content .game_select_form .game_select_list {
+            height: 50px;
+            width: 250px;
+            font-size: 15pt;
+            font-weight: 500;
+            text-align: center;
+        }
+
+        #content .game_select_form .game_select_list option {
+        }
+
+        #content .game_select_form .game_select_btn {
+            height:50px;
+            width:80px;
+            border: none;
+            padding: 0;
+        }
+
+        #content #setting_form {
+            position: relative;
+            margin-top: 20px;
+        }
+
+        #content #setting_form table {
+            width: 100%;
+            text-align: center;
+        }
+
+        #content #setting_form th {
+            font-size: 20pt;
+            font-weight: 500;
+        }
+        #content #setting_form td {
+            font-size: 15pt;
+            font-weight: 200;
+        }
+        #content #setting_form tr {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        #content #setting_form button {
+            border: none;
+            padding: 0;
+            margin-top: 10px;
+            width:49%;
+            font-size: 15pt;
+            font-weight: 500;
         }
     </style>
 </head>
 <body>
 
+<div th:replace="/fragments/header :: header"></div>
+<div th:replace="/fragments/settingNavigation :: settingNavigation"></div>
 <div id="content">
 
     <div class="game_select_form">
-        <select class="game_select_list">
+        <select class="game_select_list" th:object="${games}">
             <!-- 페이지 도착 시 게임의 종류를 받아 표시 -->
-            <option aria-checked="true">세팅을 할 게임을 선택해 주세요</option>
-            <option>디아블로 3</option>
-            <option>스타크래프트 2</option>
+            <option aria-checked="true">게임 선택</option>
+            <option th:each="game : ${games}">${games.name}</option>
         </select>
-        <button class="game_select_btn">찾기</button>
+        <button type="button" class="game_select_btn">찾기</button>
     </div>
 
     <form id="setting_form">
@@ -52,6 +106,6 @@
     </form>
 
 </div>
-
+<div th:replace="/fragments/footer :: footer"></div>
 </body>
 </html>
