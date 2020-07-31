@@ -12,7 +12,7 @@ public class BoardContoller {
 
     private final BoardService boardService;
 
-    @GetMapping("/boards")
+    @GetMapping({"/","/index"})
     public String boards(Model model){
 
 

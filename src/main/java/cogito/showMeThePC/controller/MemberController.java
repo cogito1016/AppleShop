@@ -21,10 +21,6 @@ public class MemberController {
 
     private final MemberService memberService;
 
-    @GetMapping({"/","/index"})
-    public String home(){
-        return "index";
-    }//home() end
 
     @GetMapping("/member")
     public String registerForm(Model model){

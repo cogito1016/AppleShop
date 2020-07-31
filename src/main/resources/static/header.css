@@ -32,6 +32,7 @@
 }
 
 #settingNavigation {
+    display: block;
     position: relative;
     height:100px;
     background-color: red;
@@ -40,7 +41,7 @@
     transition: .2s ease;
 }
 
-#settingNavigation h2 {
+#settingNavigation span {
     font-size: 30pt;
     line-height: 100px;
 }
