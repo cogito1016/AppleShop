@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>세팅</title>
+    <style>
+
+        #content {
+            margin:0 auto;
+            width:500px;
+            background-color: red;
+        }
+
+
+        #content #setting_form button{
+            width:50%;
+        }
+    </style>
+</head>
+<body>
+
+<div id="content">
+
+    <div class="game_select_form">
+        <select class="game_select_list">
+            <!-- 페이지 도착 시 게임의 종류를 받아 표시 -->
+            <option aria-checked="true">세팅을 할 게임을 선택해 주세요</option>
+            <option>디아블로 3</option>
+            <option>스타크래프트 2</option>
+        </select>
+        <button class="game_select_btn">찾기</button>
+    </div>
+
+    <form id="setting_form">
+        <table>
+            <tr>
+                <th>기기종류</th>
+                <th>이름</th>
+                <th>가격</th>
+                <th>사이트</th>
+            </tr>
+            <!-- 게임설정찾기 버튼 클릭 시 넣어지는 데이터 -->
+            <tr>
+                <td>PROCESSOR</td>
+                <td>Intel I5 9600</td>
+                <td>128,000원</td>
+                <td><a href="#">사이트</a></td>
+            </tr>
+        </table>
+        <button type="submit">저장</button>
+        <button type="button">취소</button>
+    </form>
+
+</div>
+
+</body>
+</html>
