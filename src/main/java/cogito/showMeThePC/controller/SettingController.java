@@ -1,7 +1,10 @@
 package cogito.showMeThePC.controller;
 
+import cogito.showMeThePC.domain.Member;
+import cogito.showMeThePC.domain.Setting;
 import cogito.showMeThePC.domain.device.Device;
 import cogito.showMeThePC.service.GameService;
+import cogito.showMeThePC.service.SettingService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,6 +12,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpSession;
+import java.io.IOException;
 import java.util.List;
 
 @Controller
@@ -16,6 +21,7 @@ import java.util.List;
 public class SettingController {
 
     private final GameService gameService;
+    private final SettingService settingService;
 
     @GetMapping("/setting")
     public String settingForm(Model model){
@@ -25,9 +31,11 @@ public class SettingController {
 
     @GetMapping("/setting/{gameId}")
     @ResponseBody
-    public List<Device> settingResult(@PathVariable int gameId){
-        List<Device> list = null; //Game Id를 통한 세팅 결과 담아 출력
-        return list;
+    public Setting settingResult(@PathVariable Long gameId, HttpSession session) throws IOException {
+        System.out.println("접근 성공");//현재 접근 실패 Why?
+        Member logInMember = (Member) session.getAttribute("logInMember");
+        Setting setting = settingService.runFindSetting(gameId, logInMember.getId()); //Game Id를 통한 세팅 결과 담아 출력
+        return setting;
     }
 
 }

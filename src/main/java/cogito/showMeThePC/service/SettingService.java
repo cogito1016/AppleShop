@@ -29,7 +29,13 @@ public class SettingService {
     private final MemberRepository memberRepository;
 
     @Transactional
-    public Long saveSetting(Long gameId, Long memberId) throws IOException {
+    public Long saveSetting(Setting setting) throws IOException {
+        //그리고 Repository를 호출하여 저장한다.
+        return settingRepository.saveSetting(setting);
+    }//saveSetting() end
+
+    @Transactional
+    public Setting runFindSetting(Long gameId, Long memberId) throws IOException {
 
         Game game = gameRepository.findOne(gameId);
         Member member = memberRepository.findOne(memberId);
@@ -50,10 +56,8 @@ public class SettingService {
         //해당 Game과 Device들을 이용해서 Setting객체를 만든다.
         Setting setting = Setting.createSetting(member,game,devices);
 
-
-        //그리고 Repository를 호출하여 저장한다.
-        return settingRepository.saveSetting(setting);
-    }//saveSetting() end
+        return setting;
+    }//runFindSetting() end
 
     public Device crawling(DeviceType deviceType,String s) throws IOException {
 

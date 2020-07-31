@@ -108,4 +108,44 @@
 </div>
 <div th:replace="/fragments/footer :: footer"></div>
 </body>
+<script>
+
+
+    const findBtn = document.querySelector(".game_select_btn");
+    findBtn.addEventListener('click',getSetting);
+
+    function getSetting() {
+        let selectList = document.querySelector(".game_select_list");
+        let selectedValue = selectList.options[selectList.selectedIndex].value;
+        let xhr = new XMLHttpRequest();
+
+        let url = '/setting/'+selectedValue; // '/setting/1' 로 제대로 나오는데 접근이안된다. Why?
+
+        xhr.open('GET',url);
+        xhr.setRequestHeader('Accept','application/json');
+
+        xhr.onload = function(e){
+
+            if(xhr.status==200){
+                alert("불러오기 성공");
+                // let json = Json.parse(xhr.responseText);
+                //
+                // for(let item : json){
+                //
+                // }
+                // let tr = document.createElement("tr");
+                // let kind = document.createElement("td");
+                // let name = document.createElement("td");
+                // let price = document.createElement("td");
+                // let site = document.createElement("td");
+            }else{
+                alert("불러오기 실패");
+            }//if~else end
+            }
+
+        }
+    }
+
+
+</script>
 </html>
