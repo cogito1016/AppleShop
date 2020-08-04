@@ -29,12 +29,14 @@ public class SettingController {
         return "settingForm";
     }//settingForm() end
 
-    @GetMapping("/setting/{gameId}")
+    @GetMapping("/setting/{gameId}/{memberId}")
     @ResponseBody
-    public Setting settingResult(@PathVariable Long gameId, HttpSession session) throws IOException {
-        System.out.println("접근 성공");//현재 접근 실패 Why?
-        Member logInMember = (Member) session.getAttribute("logInMember");
-        Setting setting = settingService.runFindSetting(gameId, logInMember.getId()); //Game Id를 통한 세팅 결과 담아 출력
+    public Setting settingResult(@PathVariable Long gameId,@PathVariable Long memberId, HttpSession session) throws IOException {
+//        Member logInMember = (Member) session.getAttribute("logInMember");
+//        System.out.println("접근 성공 gameId="+gameId+" memberId="+logInMember.getId());
+//        Setting setting = settingService.runFindSetting(gameId, logInMember.getId()); //Game Id를 통한 세팅 결과 담아 출력
+
+        Setting setting = settingService.runFindSetting(gameId,memberId);
         return setting;
     }
 

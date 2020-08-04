@@ -119,13 +119,15 @@
         let selectedValue = selectList.options[selectList.selectedIndex].value;
         let xhr = new XMLHttpRequest();
 
-        let url = '/setting/'+selectedValue; // '/setting/1' 로 제대로 나오는데 접근이안된다. Why?
+        let url = '/setting/'+selectedValue+'/run'; // '/setting/1' 로 제대로 나오는데 접근이안된다. Why?
 
+        alert(url);
         xhr.open('GET',url);
         xhr.setRequestHeader('Accept','application/json');
 
+        alert("go!?");
         xhr.onload = function(e){
-
+            alert("hey");
             if(xhr.status==200){
                 alert("불러오기 성공");
                 // let json = Json.parse(xhr.responseText);
@@ -141,8 +143,6 @@
             }else{
                 alert("불러오기 실패");
             }//if~else end
-            }
-
         }
     }
 
