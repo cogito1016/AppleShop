@@ -18,7 +18,6 @@ import static org.junit.Assert.*;
 public class BoardServiceTest {
 
     @Autowired private BoardService boardService;
-    @Autowired private SettingService settingService;
     @Autowired private MemberService memberService;
 
     @Test

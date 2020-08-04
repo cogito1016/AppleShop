@@ -24,7 +24,6 @@ import static org.junit.Assert.*;
 public class SettingServiceTest {
 
     @Autowired private SettingService settingService;
-    @Autowired private DeviceService deviceService;
     @Autowired private GameService gameService;
     @Autowired private  MemberService memberService;
 
