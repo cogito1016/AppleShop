@@ -35,7 +35,7 @@ public class SettingController {
 //        Member logInMember = (Member) session.getAttribute("logInMember");
 //        System.out.println("접근 성공 gameId="+gameId+" memberId="+logInMember.getId());
 //        Setting setting = settingService.runFindSetting(gameId, logInMember.getId()); //Game Id를 통한 세팅 결과 담아 출력
-
+        System.out.println("컨트롤러 접근은 성공");
         Setting setting = settingService.runFindSetting(gameId,memberId);
         return setting;
     }

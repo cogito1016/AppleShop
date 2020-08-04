@@ -14,9 +14,7 @@ public class BoardContoller {
 
     @GetMapping({"/","/index"})
     public String boards(Model model){
-
-
         model.addAttribute("boards",boardService.findAll());
         return "index";
-    }
+    }//boards() end
 }
