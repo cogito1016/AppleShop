@@ -29,7 +29,7 @@ public class SettingController {
         return "settingForm";
     }//settingForm() end
 
-    @GetMapping("/setting/{gameId}/{memberId}")
+    @GetMapping("/setting/game/{gameId}/member/{memberId}")
     @ResponseBody
     public Setting settingResult(@PathVariable Long gameId,@PathVariable Long memberId, HttpSession session) throws IOException {
 //        Member logInMember = (Member) session.getAttribute("logInMember");
@@ -38,11 +38,5 @@ public class SettingController {
         System.out.println("컨트롤러 접근은 성공");
         Setting setting = settingService.runFindSetting(gameId,memberId);
         return setting;
-    }
-
-    @GetMapping("/hello")
-    @ResponseBody
-    public String hello(){
-     return "hello";
     }
 }

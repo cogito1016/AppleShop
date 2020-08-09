@@ -52,4 +52,11 @@ public class Setting extends BaseEntity{
         return result;
     }//totalPrice() end
 
+    public void showSettingInfo(){
+        System.out.println(this.member.getId()+" 멤버가 "+this.game.getId()+" 게임을 셋팅한 결과 ");
+        for(Device device : this.devices){
+            System.out.println(device.getDeviceType()+" "+device.getName());
+        }//for end
+    }//showSettingInfo() end
+
 }
