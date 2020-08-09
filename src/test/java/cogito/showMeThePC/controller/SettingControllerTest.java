@@ -1,12 +1,15 @@
 package cogito.showMeThePC.controller;
 
 import cogito.showMeThePC.ShopApplication;
+import cogito.showMeThePC.service.GameService;
+import cogito.showMeThePC.service.SettingService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
@@ -19,12 +22,15 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(SpringRunner.class)
-@Transactional
-@WebMvcTest
+@WebMvcTest(SettingController.class)
 public class SettingControllerTest {
 
     @Autowired
     MockMvc mockMvc;
+    @MockBean
+    private GameService gameService;
+    @MockBean
+    private SettingService settingService;
 
     @Test
     public void 세팅테스트() throws Exception {
