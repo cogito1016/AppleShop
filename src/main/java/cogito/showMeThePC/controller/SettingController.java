@@ -40,4 +40,9 @@ public class SettingController {
         return setting;
     }
 
+    @GetMapping("/hello")
+    @ResponseBody
+    public String hello(){
+     return "hello";
+    }
 }

@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 @RequiredArgsConstructor
-public class BoardContoller {
+public class BoardController {
 
     private final BoardService boardService;
 
